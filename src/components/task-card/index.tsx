@@ -1,6 +1,7 @@
 import { EditField } from "components/edit-field"
 import React, { useState } from "react"
-import { Button, Card } from "react-bootstrap"
+import { Card } from "react-bootstrap"
+import { Button } from "@material-ui/core"
 import { emptyThen } from "utils/funcs"
 
 export type TaskCardProps = {}
@@ -18,8 +19,12 @@ export const TaskCard = (p: TaskCardProps) => {
                     <EditField placeholder="How do you plan it?" value={desc} onChange={setDesc}>
                         <p>{emptyThen(desc, "Do something")}</p>
                     </EditField>
-                    <Button variant="outline-primary">resolve</Button>
-                    <Button variant="outline-danger">reject</Button>
+                    <Button variant="contained" color="primary">
+                        resolve
+                    </Button>
+                    <Button variant="contained" color="secondary">
+                        cancel
+                    </Button>
                 </Card.Body>
             </Card>
         </div>
