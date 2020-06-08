@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { TaskCard } from "components/task-card"
+import React from "react"
+import { Jumbotron } from "react-bootstrap"
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    // const sendMsg = () => {}
+    // const modifyCard = () => {}
+    return (
+        <div>
+            <Jumbotron>
+                <h1>What's Your Today's Plan?</h1>
+            </Jumbotron>
+            <div className="animate__animated animate__fadeInDown">
+                <TaskCard />
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App
