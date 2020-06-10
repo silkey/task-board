@@ -1,20 +1,23 @@
 import { AppBar, MuiThemeProvider, Toolbar } from "@material-ui/core"
-import { TaskCard } from "components/task-card"
+import { Navigator, NavigatorConf } from "components/@router"
 import React from "react"
 import { theme } from "style/mui-theme"
 import "./App.css"
-import { FadeInDown } from "components/@anim"
+import { HomePage } from "pages/home"
+import { AboutPage } from "pages/about"
 
 const App = () => {
-    window.addEventListener("hashchange", () => console.log("hashChanged"))
+    const navConf: NavigatorConf[] = [
+        { path: "/", component: <HomePage /> },
+        { path: "/About", component: <AboutPage /> },
+    ]
     return (
         <MuiThemeProvider theme={theme}>
             <AppBar>
-                <Toolbar></Toolbar>
+                <Toolbar>
+                    <Navigator conf={navConf} />
+                </Toolbar>
             </AppBar>
-            <FadeInDown>
-                <TaskCard />
-            </FadeInDown>
         </MuiThemeProvider>
     )
 }
