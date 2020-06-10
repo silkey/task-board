@@ -1,18 +1,20 @@
-import { AppBar, MuiThemeProvider } from "@material-ui/core"
+import { AppBar, MuiThemeProvider, Toolbar } from "@material-ui/core"
 import { TaskCard } from "components/task-card"
 import React from "react"
 import { theme } from "style/mui-theme"
 import "./App.css"
+import { FadeInDown } from "components/@anim"
 
 const App = () => {
-    // const sendMsg = () => {}
-    // const modifyCard = () => {}`
+    window.addEventListener("hashchange", () => console.log("hashChanged"))
     return (
         <MuiThemeProvider theme={theme}>
-            <AppBar></AppBar>
-            <div className="animate__animated animate__fadeInDown">
+            <AppBar>
+                <Toolbar></Toolbar>
+            </AppBar>
+            <FadeInDown>
                 <TaskCard />
-            </div>
+            </FadeInDown>
         </MuiThemeProvider>
     )
 }
