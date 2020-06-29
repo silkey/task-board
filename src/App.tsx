@@ -1,9 +1,9 @@
+import React from "react"
 import { AppBar, Box, Button, MuiThemeProvider, Toolbar } from "@material-ui/core"
 import { SearchField } from "components/search-field"
 import ThemeToggle from "components/theme-toggle"
 import { AboutPage } from "pages/about"
 import { HomePage } from "pages/home"
-import React from "react"
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
 import { useCurrentTheme } from "style/useTheme"
 import "./App.css"
@@ -33,7 +33,7 @@ const App = () => {
                             justifyContent="space-between"
                             width="100%"
                         >
-                            <Box>
+                            <Box display="flex" alignItems="center">
                                 {navConf.map((x) => (
                                     <Button key={x.name} color="secondary">
                                         <Link
@@ -45,8 +45,15 @@ const App = () => {
                                     </Button>
                                 ))}
                             </Box>
-                            <ThemeToggle />
-                            <SearchField />
+
+                            <Box display="flex" alignItems="center">
+                                <Box display="flex" alignItems="center" mr={3}>
+                                    <ThemeToggle />
+                                </Box>
+                                <Box display="flex" alignItems="center">
+                                    <SearchField />
+                                </Box>
+                            </Box>
                         </Box>
                     </Toolbar>
                 </AppBar>

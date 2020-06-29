@@ -6,9 +6,10 @@ import {
     CardContent,
     CardMedia,
     makeStyles,
+    TextField,
+    Box,
 } from "@material-ui/core"
 import { Skeleton } from "@material-ui/lab"
-import { EditField } from "components/edit-field"
 import React, { useState } from "react"
 
 const useStyle = makeStyles({
@@ -49,20 +50,21 @@ export const TaskCard = (p: TaskCardProps) => {
                 />
             </CardMedia>
             <CardContent>
-                <EditField
-                    labelDefault="title"
-                    labelVariant="h3"
+                <TextField
+                    fullWidth
+                    label="Title"
                     placeholder="Give it a name"
                     value={title}
-                    onChange={setTitle}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
-                <EditField
-                    labelDefault="Do something"
-                    labelVariant="body1"
+                <Box mb={1} />
+                <TextField
                     multiline
+                    fullWidth
+                    label="Description"
                     placeholder="How do you plan it?"
                     value={desc}
-                    onChange={setDesc}
+                    onChange={(e) => setDesc(e.target.value)}
                 />
             </CardContent>
             <CardActions>
